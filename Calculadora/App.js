@@ -37,30 +37,32 @@ export default function App() {
 		}
 	}
 
-  function handleInput(buttonPressed){
-    console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" ){
-      setCurrentNumber(currentNumber + " " + buttonPressed + " ")
-      return
-    }
-    switch(buttonPressed){
-      case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
-        return
-      case 'LIMPAR': // Limpa todo o conteúdo
-        setLastNumber("") 
-        setCurrentNumber("") 
-        return
-      case '=':
-        setLastNumber(currentNumber + " = ")
-        calculator()
-        return
-      case '+/-':
-        return
-    }
+	function handleInput(buttonPressed) {
+		console.log(buttonPressed) // Mostra no Console a tecla pressionada
+		let operadores = ['+', "-", "x", "/", "%"]
+		if (operadores.includes(buttonPressed)) {
+			setCurrentNumber(currentNumber + " " + buttonPressed + " ")
+			return
+		}
+		switch (buttonPressed) {
+			case 'DEL':
+				setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 1)))
+				return
+			case 'LIMPAR': // Limpa todo o conteúdo
+				setLastNumber("")
+				setCurrentNumber("")
+				return
+			case '=':
+				setLastNumber(currentNumber + " = ")
+				calculator()
+				return
+			case '+/-':
+				setCurrentNumber(currentNumber * -1)
+				return
+		}
 
-    setCurrentNumber(currentNumber + buttonPressed)
-  }
+		setCurrentNumber(currentNumber + buttonPressed)
+	}
 
 
 	return (
