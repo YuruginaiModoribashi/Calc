@@ -10,28 +10,32 @@ export default function App() {
   const [lastNumber, setLastNumber] = useState("")
 
 
-  function calculator(){
-    const splitNumbers = currentNumber.split(' ')
-    const fistNumber = parseFloat(splitNumbers[0])
-    const lastNumber = parseFloat(splitNumbers[2])
-    const operator = splitNumbers[1]
+	function calculator() {
+		const splitNumbers = currentNumber.split(' ')
+		const fistNumber = parseFloat(splitNumbers[0])
+		const lastNumber = parseFloat(splitNumbers[2])
+		const operator = splitNumbers[1]
+		console.log({ splitNumbers })
 
-    // Faz ação referente tecla pressionada
-    switch(operator){
-      case '+':
-        setCurrentNumber((fistNumber + lastNumber).toString())
-        return
-      case '-': 
-        setCurrentNumber((fistNumber - lastNumber).toString())
-        return
-      case 'x':
-        setCurrentNumber((fistNumber * lastNumber).toString())
-        return
-      case '/':
-        setCurrentNumber((fistNumber / lastNumber).toString())
-        return
-    }
-  }
+		// Faz ação referente tecla pressionada
+		switch (operator) {
+			case '+':
+				setCurrentNumber((fistNumber + lastNumber).toString())
+				return
+			case '-':
+				setCurrentNumber((fistNumber - lastNumber).toString())
+				return
+			case 'x':
+				setCurrentNumber((fistNumber * lastNumber).toString())
+				return
+			case '/':
+				setCurrentNumber((fistNumber / lastNumber).toString())
+				return
+			case '%':
+				setCurrentNumber(((fistNumber / 100) * lastNumber).toString())
+				return
+		}
+	}
 
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
