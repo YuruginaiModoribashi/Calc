@@ -9,7 +9,6 @@ export default function App() {
   const [currentNumber, setCurrentNumber] = useState("")
   const [lastNumber, setLastNumber] = useState("")
 
-
 	function calculator() {
 		const splitNumbers = currentNumber.split(' ')
 		const fistNumber = parseFloat(splitNumbers[0])
