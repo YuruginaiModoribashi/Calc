@@ -64,7 +64,6 @@ export default function App() {
 		setCurrentNumber(currentNumber + buttonPressed)
 	}
 
-
 	return (
 		<View style={styles.container}>
 
